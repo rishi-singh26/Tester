@@ -209,7 +209,6 @@ function renderSelectedChip(item, index, selectedChips, setSelectedChips) {
 export default function Chips(props) {
   const [selectedChips, setSelectedChips] = useState([]);
 
-  console.log("selected chips", selectedChips);
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#f6f6f6" }}>
       <Header

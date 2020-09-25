@@ -6,6 +6,7 @@ import Accordian from "../Pages/Accordian/index";
 import BlurView from "../Pages/BlurView/index";
 import BottomTabs from "../Pages/CustomBottomTabs/index";
 import Chips from "../Pages/Chip/index";
+import SwipeToDelete from "../Pages/SwipeToDelete/index";
 
 const Drawer = createDrawerNavigator();
 
@@ -17,6 +18,7 @@ export default function Navigator() {
         <Drawer.Screen name="BlurView" component={BlurView} />
         <Drawer.Screen name="BottomTabs" component={BottomTabs} />
         <Drawer.Screen name="Chips" component={Chips} />
+        <Drawer.Screen name="SwipeToDelete" component={SwipeToDelete} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
