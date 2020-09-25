@@ -1,14 +1,10 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import AnimatedTabBar from "@gorhom/animated-tabbar";
-import { Feather } from "@expo/vector-icons";
 import HomeSVG from "./svg/HomeSVG";
 import ProfileSVG from "./svg/ProfileSVG";
 import LikesSVG from "./svg/LikeSVG";
 import SearchSVG from "./svg/SearchSVG";
-import { View, Text } from "react-native";
-import { primaryLightColor, primaryColor } from "../../Styles";
 import Header from "../../Components/Header";
 
 const Tab = createBottomTabNavigator();

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet, SafeAreaView } from "react-native";
+import { Text, View, StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import Accordion from "../../Components/Accordian/Accordian";
 import CustomStatus from "../../Components/StatusBar";
 import { primaryLightColor } from "../../Styles";
@@ -26,6 +26,26 @@ const SECTIONS = [
     title: "Fifth",
     content: "Lorem ipsum...",
   },
+  {
+    title: "Sixth",
+    content: "Lorem ipsum...",
+  },
+  {
+    title: "Seventh",
+    content: "Lorem ipsum...",
+  },
+  {
+    title: "Eighth",
+    content: "Lorem ipsum...",
+  },
+  {
+    title: "Ninth",
+    content: "Lorem ipsum...",
+  },
+  {
+    title: "Tenth",
+    content: "Lorem ipsum...",
+  },
 ];
 
 class Accordian extends React.Component {
@@ -33,36 +53,26 @@ class Accordian extends React.Component {
     super(props);
     this.state = {
       activeSections: [],
-      borderRadious: 10,
     };
   }
 
-  // _renderSectionTitle = (section) => {
-  //   const { borderRadious } = this.state;
-  //   return (
-  //     <View
-  //       style={[
-  //         styles.content,
-  //         {
-  //           borderTopLeftRadius: borderRadious,
-  //           borderTopRightRadius: borderRadious,
-  //         },
-  //       ]}
-  //     >
-  //       <Text>{section.title}</Text>
-  //     </View>
-  //   );
-  // };
-
-  _renderHeader = (section) => {
+  _renderSectionTitle = (section) => {
     const { borderRadious } = this.state;
+    return (
+      <View style={styles.title}>
+        <Text>{section.title}</Text>
+      </View>
+    );
+  };
+
+  _renderHeader = (section, index, isActive, allSections) => {
     return (
       <View
         style={[
           styles.header,
           {
-            borderBottomLeftRadius: borderRadious,
-            borderBottomRightRadius: borderRadious,
+            borderBottomLeftRadius: isActive ? 0 : 10,
+            borderBottomRightRadius: isActive ? 0 : 10,
           },
         ]}
       >
@@ -71,7 +81,7 @@ class Accordian extends React.Component {
     );
   };
 
-  _renderContent = (section) => {
+  _renderContent = (section, index, isActive, allSections) => {
     return (
       <View style={styles.content}>
         <Text>section content</Text>
@@ -86,23 +96,13 @@ class Accordian extends React.Component {
   };
 
   _updateSections = (activeSections) => {
-    const currentActiveSection =
-      this.state.activeSections.length > 0 ? this.state.activeSections[0] : -1;
-    // console.log(activeSections, currentActiveSection);
-    this.setState({
-      activeSections,
-      borderRadious:
-        activeSections.length > 0
-          ? activeSections[0] === currentActiveSection
-            ? 0
-            : 10
-          : 10,
-    });
+    // console.log({ activeSections });
+    this.setState({ activeSections });
   };
 
   render() {
     return (
-      <SafeAreaView style={{ backgroundColor: "#f6f6f6" }}>
+      <SafeAreaView style={{ backgroundColor: primaryLightColor, flex: 1 }}>
         <CustomStatus
           backgroundColor={primaryLightColor}
           contentType="light-content"
@@ -113,14 +113,20 @@ class Accordian extends React.Component {
             this.props.navigation.toggleDrawer();
           }}
         />
-        <Accordion
-          sections={SECTIONS}
-          activeSections={this.state.activeSections}
-          //   renderSectionTitle={this._renderSectionTitle}
-          renderHeader={this._renderHeader}
-          renderContent={this._renderContent}
-          onChange={this._updateSections}
-        />
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={{ backgroundColor: "#f6f6f6" }}
+        >
+          <Accordion
+            sections={SECTIONS}
+            activeSections={this.state.activeSections}
+            // renderSectionTitle={this._renderSectionTitle}
+            renderHeader={this._renderHeader}
+            renderContent={this._renderContent}
+            onChange={this._updateSections}
+            sectionContainerStyle={{ backgroundColor: "#f6f6f6" }}
+          />
+        </ScrollView>
       </SafeAreaView>
     );
   }
@@ -131,8 +137,7 @@ export default Accordian;
 const styles = StyleSheet.create({
   content: {
     padding: 20,
-    paddingTop: 0,
-    backgroundColor: "#fff",
+    backgroundColor: "#fffee3",
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
     marginHorizontal: 10,
@@ -146,4 +151,5 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10,
   },
   headerText: { fontSize: 18 },
+  title: { backgroundColor: "#fff", marginHorizontal: 10, paddingVertical: 7 },
 });

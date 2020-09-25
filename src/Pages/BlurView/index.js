@@ -15,7 +15,6 @@ import {
   primaryLightColor,
   primaryErrColor,
 } from "../../Styles/index";
-import MenuIcon from "../../Components/MenuIcon";
 import { toast } from "../../Functions/index";
 import { Assets } from "../../Assets/index";
 import CustomStatus from "../../Components/StatusBar";
@@ -90,7 +89,10 @@ class BlurView extends React.Component {
             this.props.navigation.toggleDrawer();
           }}
         />
-        <ScrollView style={{ flex: 1, backgroundColor: "#f9f9f9" }}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={{ flex: 1, backgroundColor: "#f9f9f9" }}
+        >
           {this.renderCard("deliveryBox", "Total Orders :", 2346)}
           {this.renderCard("completedOrder", "Completed Orders :", 2279)}
           {this.renderCard("pendingOrder1", "Pending Orders :", 2346 - 2279)}

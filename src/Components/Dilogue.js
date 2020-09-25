@@ -33,8 +33,8 @@ export default class Dilogue extends Component {
 
 const styles = StyleSheet.create({
   transparentView: {
-    height: SCREEN_HEIGHT,
-    width: SCREEN_WIDTH,
+    height: "100%",
+    width: "100%",
     backgroundColor: "#0002",
     justifyContent: "center",
   },
