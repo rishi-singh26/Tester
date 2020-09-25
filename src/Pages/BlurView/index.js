@@ -98,6 +98,7 @@ class BlurView extends React.Component {
           {this.renderCard("pendingOrder1", "Pending Orders :", 2346 - 2279)}
         </ScrollView>
         <Dilogue
+          cancellable={true}
           dilogueVisible={this.state.dilogueVisible}
           dilogueBackground={primaryLightColor}
           closeDilogue={() => {
@@ -133,8 +134,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     alignSelf: "flex-end",
   },
-  dilogueHeaderTxt: { fontSize: 16, color: "#fff", fontWeight: "700" },
-  dilogueBodyTxt: { fontSize: 14, color: "#fff" },
+  dilogueHeaderTxt: { fontSize: 17, color: "#fff", fontWeight: "700" },
+  dilogueBodyTxt: { fontSize: 15, color: "#fff", marginTop: 10 },
   timeBlockTxt: {
     color: "#fff",
     marginHorizontal: 30,

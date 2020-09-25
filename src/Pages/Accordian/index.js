@@ -4,6 +4,7 @@ import Accordion from "../../Components/Accordian/Accordian";
 import CustomStatus from "../../Components/StatusBar";
 import { primaryLightColor } from "../../Styles";
 import Header from "../../Components/Header";
+import { Feather } from "@expo/vector-icons";
 
 const SECTIONS = [
   {
@@ -77,6 +78,11 @@ class Accordian extends React.Component {
         ]}
       >
         <Text style={styles.headerText}>{section.title}</Text>
+        <Feather
+          name={isActive ? "chevron-up" : "chevron-down"}
+          color="#000"
+          size={20}
+        />
       </View>
     );
   };
@@ -149,6 +155,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   headerText: { fontSize: 18 },
   title: { backgroundColor: "#fff", marginHorizontal: 10, paddingVertical: 7 },

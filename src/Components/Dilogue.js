@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Text, Modal, View, StyleSheet } from "react-native";
+import {
+  Text,
+  Modal,
+  View,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  Pressable,
+} from "react-native";
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../Styles";
 
 export default class Dilogue extends Component {
@@ -16,7 +23,12 @@ export default class Dilogue extends Component {
         visible={this.props.dilogueVisible}
         onRequestClose={() => this.props.closeDilogue()}
       >
-        <View style={styles.transparentView}>
+        <Pressable
+          onPress={() => {
+            this.props.cancellable ? this.props.closeDilogue() : null;
+          }}
+          style={styles.transparentView}
+        >
           <View
             style={[
               styles.container,
@@ -25,7 +37,7 @@ export default class Dilogue extends Component {
           >
             {this.props.children}
           </View>
-        </View>
+        </Pressable>
       </Modal>
     );
   }
