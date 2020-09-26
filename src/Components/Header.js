@@ -1,10 +1,13 @@
-import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import React, { useState } from "react";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import MenuIcon from "./MenuIcon";
 import { primaryLightColor, primaryColor } from "../Styles/index";
+import ProfileModal from "./ProfileModal";
 
 export default function Header({ menuBtnPress, title }) {
+  const [accountModalVisible, setAccountModalVisible] = useState(false);
+
   return (
     <View style={styles.headerBox}>
       <View style={styles.headerMenuView}>
@@ -17,15 +20,25 @@ export default function Header({ menuBtnPress, title }) {
           />
           <Text style={styles.headerHeading}>{title}</Text>
         </View>
-        <View>
+        <TouchableOpacity
+          onPress={() => {
+            setAccountModalVisible(true);
+          }}
+        >
           <MaterialCommunityIcons
             name="account-outline"
             size={30}
             color={primaryColor}
             style={styles.headerBoxIcon}
           />
-        </View>
+        </TouchableOpacity>
       </View>
+      <ProfileModal
+        visible={accountModalVisible}
+        closeModal={() => {
+          setAccountModalVisible(!accountModalVisible);
+        }}
+      />
     </View>
   );
 }

@@ -75,7 +75,7 @@ function renderDefaultSwipeable(
           },
         },
       ]}
-      autoClose="true"
+      autoClose={true}
       backgroundColor="#fff"
       style={styles.swipableBody}
     >
@@ -84,7 +84,7 @@ function renderDefaultSwipeable(
           justifyContent: "center",
         }}
         onPress={() => {
-          console.log("pressed");
+          // console.log("pressed");
         }}
       >
         <Text style={styles.swipabelBodyTxt}>{item.title}</Text>
@@ -159,7 +159,7 @@ function renderArchivedSwipeable(
           },
         },
       ]}
-      autoClose="true"
+      autoClose={true}
       backgroundColor="#fff"
       style={styles.swipableBody}
     >
@@ -168,7 +168,7 @@ function renderArchivedSwipeable(
           justifyContent: "center",
         }}
         onPress={() => {
-          console.log("pressed");
+          // console.log("pressed");
         }}
       >
         <Text style={styles.swipabelBodyTxt}>{item.title}</Text>
@@ -243,7 +243,7 @@ function renderDeletedSwipeable(
           },
         },
       ]}
-      autoClose="true"
+      autoClose={true}
       backgroundColor="#fff"
       style={styles.swipableBody}
     >
@@ -252,7 +252,7 @@ function renderDeletedSwipeable(
           justifyContent: "center",
         }}
         onPress={() => {
-          console.log("pressed");
+          // console.log("pressed");
         }}
       >
         <Text style={styles.swipabelBodyTxt}>{item.title}</Text>
@@ -311,47 +311,47 @@ export default function SwipeToDelete(props) {
       price: 10.0,
       quantity: 1,
     },
-    {
-      key: "8",
-      title: "Protein Shake",
-      price: 12.8,
-      quantity: 1,
-    },
-    {
-      key: "9",
-      title: "Lassi",
-      price: 10.2,
-      quantity: 1,
-    },
-    {
-      key: "10",
-      title: "Pista Lassi",
-      price: 10,
-      quantity: 1,
-    },
-    {
-      key: "11",
-      title: "Mango Lassi",
-      price: 10,
-      quantity: 1,
-    },
-    {
-      key: "12",
-      title: "Chocklet Shake",
-      price: 10,
-      quantity: 1,
-    },
-    {
-      key: "13",
-      title: "Heavy Shake",
-      price: 10,
-      quantity: 2,
-    },
+    // {
+    //   key: "8",
+    //   title: "Protein Shake",
+    //   price: 12.8,
+    //   quantity: 1,
+    // },
+    // {
+    //   key: "9",
+    //   title: "Lassi",
+    //   price: 10.2,
+    //   quantity: 1,
+    // },
+    // {
+    //   key: "10",
+    //   title: "Pista Lassi",
+    //   price: 10,
+    //   quantity: 1,
+    // },
+    // {
+    //   key: "11",
+    //   title: "Mango Lassi",
+    //   price: 10,
+    //   quantity: 1,
+    // },
+    // {
+    //   key: "12",
+    //   title: "Chocklet Shake",
+    //   price: 10,
+    //   quantity: 1,
+    // },
+    // {
+    //   key: "13",
+    //   title: "Heavy Shake",
+    //   price: 10,
+    //   quantity: 2,
+    // },
   ]);
   const [archivedItems, setArchivedItems] = useState([]);
   const [deletedItems, setDeletedItems] = useState([]);
 
-  console.log({ defaultItems, archivedItems, deletedItems });
+  // console.log({ defaultItems, archivedItems, deletedItems });
   return (
     <SafeAreaView style={{ backgroundColor: "#f5f5f5", flex: 1 }}>
       <Header
